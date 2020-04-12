@@ -1,5 +1,6 @@
 package com.example.homework3;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +16,9 @@ public class MainAdapter extends RecyclerView.Adapter<MainViewHolder> {
 
     public MainAdapter() {
         data = new ArrayList<>();
-
+        for (int i = 0; i < 1000 ; i++) {
+            
+        }
     }
 
     @NonNull

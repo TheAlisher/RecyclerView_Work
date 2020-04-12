@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private static int CALCULATOR_ACTIVITY_CODE = 15;
 
     MainAdapter adapter;
+    ArrayList<String> getHistory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setAdapter(adapter);
+
 
         Intent intent = getIntent();
         if (intent != null) {
@@ -46,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intentShare = new Intent();
                 intentShare.setAction(Intent.ACTION_SEND);
                 intentShare.setType("text/plain");
-                intentShare.putExtra(Intent.EXTRA_TEXT, adapter.toString());
+                intentShare.putExtra(Intent.EXTRA_TEXT, adapter.data.size());
                 if (intentShare.resolveActivity(getPackageManager()) != null) {
                     startActivity(intentShare);
                 }

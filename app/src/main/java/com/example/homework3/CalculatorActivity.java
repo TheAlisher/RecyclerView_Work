@@ -19,8 +19,6 @@ public class CalculatorActivity extends AppCompatActivity {
 
     private static int MAIN_ACTIVITY_CODE = 16;
 
-    MainAdapter adapter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +35,6 @@ public class CalculatorActivity extends AppCompatActivity {
                 startActivityForResult(intent, MAIN_ACTIVITY_CODE);
             }
         });
-
         Log.d("anim", "onCreate");
     }
 

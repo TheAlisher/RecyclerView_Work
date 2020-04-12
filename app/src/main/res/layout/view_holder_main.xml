@@ -5,9 +5,10 @@
 
     <TextView
         android:id="@+id/vh_text_view"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="30sp"
-        android:textColor="@color/Crimson"/>
+        android:textColor="@color/Crimson"
+        android:textStyle="bold"/>
 
 </LinearLayout>
