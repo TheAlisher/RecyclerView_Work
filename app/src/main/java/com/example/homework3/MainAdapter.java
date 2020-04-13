@@ -16,9 +16,12 @@ public class MainAdapter extends RecyclerView.Adapter<MainViewHolder> {
 
     public MainAdapter() {
         data = new ArrayList<>();
-        for (int i = 0; i < 1000 ; i++) {
-            
-        }
+
+    }
+
+    public void update(ArrayList<String> arrayList){
+        data = arrayList;
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -33,7 +36,8 @@ public class MainAdapter extends RecyclerView.Adapter<MainViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MainViewHolder holder, int position) {
-        holder.textView.setText(data.get(position));
+        //holder.textView.setText(data.get(position));
+        holder.onBind(data.get(position));
     }
 
     @Override

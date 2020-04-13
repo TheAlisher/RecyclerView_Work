@@ -32,7 +32,8 @@ public class CalculatorActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(CalculatorActivity.this, MainActivity.class);
                 intent.putExtra(MainActivity.GET_TEXT_KEY, result.getText().toString());
-                startActivityForResult(intent, MAIN_ACTIVITY_CODE);
+                setResult(RESULT_OK, intent);
+                finish();
             }
         });
         Log.d("anim", "onCreate");

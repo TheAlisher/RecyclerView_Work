@@ -33,13 +33,12 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setAdapter(adapter);
 
-
-        Intent intent = getIntent();
+        /*Intent intent = getIntent();
         if (intent != null) {
             String get = intent.getStringExtra(GET_TEXT_KEY);
             adapter.data.add(get);
             adapter.notifyDataSetChanged();
-        }
+        }*/
 
         Button share = findViewById(R.id.shareButton);
         share.setOnClickListener(new View.OnClickListener() {
@@ -48,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intentShare = new Intent();
                 intentShare.setAction(Intent.ACTION_SEND);
                 intentShare.setType("text/plain");
-                intentShare.putExtra(Intent.EXTRA_TEXT, adapter.data.size());
+                intentShare.putExtra(Intent.EXTRA_TEXT, getHistory);
                 if (intentShare.resolveActivity(getPackageManager()) != null) {
                     startActivity(intentShare);
                 }
@@ -69,8 +68,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == CALCULATOR_ACTIVITY_CODE) {
-            if (resultCode == RESULT_OK) {
-                finish();
+            if (resultCode == RESULT_OK && data != null) {
+                getHistory = new ArrayList<>();
+                getHistory.add(0, data.getStringExtra(GET_TEXT_KEY));
+                adapter.update(getHistory);
             }
         }
     }
